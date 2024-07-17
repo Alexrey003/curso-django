@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantillas II</title>
+</head>
+<body>
+    <h1 style="color: violet;">Curso Django</h1>
+    <h3>Fecha de hoy: {{today_date.day}}/{{today_date.month}}/{{today_date.year}}</h3>
+    <p>
+        En este modulo veremos el como usar metodos desde Plantillas, la jerarquia de llamadas desde plantillas, uso de listas en contexto y estrcuturas de control de flujo
+    </p>
+    <p>La clase la impartira el profesor: {{name}} {{last_name}}</p>
+    <p>La profersa sustituta es: {{name_2}} {{last_name_2}}</p>
+    <p>
+        Los temas del curso son:
+        {% comment %} <ul>
+            <li>{{content.0}}</li>
+            <li>{{content.1}}</li>
+            <li>{{content.2}}</li>
+            <li>{{content.3}}</li>
+            <li>{{content.4}}</li>
+            <li>{{content.5}}</li>
+        </ul> {% endcomment %}
+        <ul>
+            {% if content %}
+                {% for topic in content %}
+                    <li>{{topic}}</li>          
+                {% endfor %}
+            {% else %}
+                <p>No hay temas disponibles</p>
+            {% endif %}
+        </ul>
+    </p>
+</body>
+</html>

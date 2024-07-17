@@ -1,0 +1,18 @@
+{% extends "navBar.html" %}
+
+{% block title %}Inicio{% endblock title %}
+
+{% block content %}
+    <h1 style="color: violet;">Inicio</h1>
+    <h3>Fecha de hoy: {{today_date.day}}/{{today_date.month}}/{{today_date.year}}</h3>
+    <p>
+        Diferentes cursos para quien quiera
+    </p>
+    {% if name == 'Alexis' and last_name == 'Reynoso' %}
+        <p>La clase la impartira el profesor titular: {{name|upper}} {{last_name|upper|first}}.
+    {% else %}
+        <p>La profesora sustituta es: {{name|upper}} {{last_name|upper|first}}.</p>
+    {% endif %}
+
+    <a href="/curso-django/">Curso Django</a>
+{% endblock content %}

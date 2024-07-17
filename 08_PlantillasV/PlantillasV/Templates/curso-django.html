@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos</title>
+</head>
+<body>
+    {% include "navBar.html" %}
+
+    <h1 style="color: violet;">Curso Django</h1>
+    <h3>Fecha de hoy: {{today_date.day}}/{{today_date.month}}/{{today_date.year}}</h3>
+    <p>
+        Plantillas incrustadas
+    </p>
+    {% if name == 'Alexis' and last_name == 'Reynoso' %}
+        <p>La clase la impartira el profesor titular: {{name|upper}} {{last_name|upper|first}}.
+    {% else %}
+        <p>La profesora sustituta es: {{name|upper}} {{last_name|upper|first}}.</p>
+    {% endif %}
+    <p>
+        Los temas del curso son:
+        <ul>
+            {% if content %}
+                {% for topic in content %}
+                    <li>{{topic}}</li>          
+                {% endfor %}
+            {% else %}
+                <p>No hay temas disponibles</p>
+            {% endif %}
+        </ul>
+    </p>
+</body>
+</html>
